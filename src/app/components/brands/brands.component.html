@@ -1,0 +1,20 @@
+<section class="my-3" *ngIf="brands">
+    <div class="row g-4 justify-content-center ">
+        <div 
+        *ngFor="let item of (brands
+        | paginate: { 
+            itemsPerPage: 20,
+            currentPage: page,
+              id:'first' } ) 
+        " class="col-em-6 col-md-4 col-lg-2">
+            <div class="product">
+                <div role="button" [routerLink]="['/brandsdetails',item._id]">
+                    <img [src]="item.image" height="270" class="w-100" [alt]="item.name">
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="py-4">
+    <pagination-controls class="text-center " (pageChange)="page = $event" id="first"></pagination-controls>
+  </div>
+</section>

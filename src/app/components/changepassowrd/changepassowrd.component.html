@@ -1,0 +1,29 @@
+<section class="w-50 mx-auto p-3 my-5 shadow bg-main-light rounded">
+    <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+        <h1 class="fw-bolder">Reset New Password</h1>
+        <hr>
+        <div class="form-item mb-3">
+            <label class="mb-2" for="currentPassword">Current Password:</label>
+            <input id="currentPassword" formControlName="currentPassword" type="password" class="form-control">
+        </div>
+
+        <div class="form-item mb-3">
+            <label class="mb-2" for="password">New Password:</label>
+            <input id="password" formControlName="password" type="password" class="form-control">
+        </div>
+
+        <div class="form-item mb-3">
+            <label class="mb-2" for="rePassword">rePassword:</label>
+            <input id="rePassword" formControlName="rePassword" type="password" class="form-control">
+            <p *ngIf="changePasswordForm.get('rePassword')?.getError('mismatch')">
+                Password confirmation is incorrect.
+            </p>
+        </div>
+
+        <button class="main-btn w-100" type="submit">Reset Password</button>
+
+        <p *ngIf="erorrMessage" class="alert alert-danger ">
+            User recently changed password! Please login again.
+        </p>
+    </form>
+</section>

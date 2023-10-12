@@ -1,0 +1,74 @@
+<!-- ls5-navbar  to create navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top " #nav   >
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">
+            <img src="./assets/images/freshcart-logo.svg" alt="">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link " routerLinkActive="active-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLinkActive="active-link" routerLink="/cart">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLinkActive="active-link" routerLink="/brands">Brands</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLinkActive="active-link" routerLink="/categories">Categorios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLinkActive="active-link" routerLink="/products">Products</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 justify-content-center align-items-center">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user" style="color: #0aad0a;"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item">
+                            <a class="dropdown-item nav-link" routerLinkActive="active-link"
+                                routerLink="/changepassowrd">
+                                Change Password
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" role="button">
+                    <a href="" class="nav-link position-relative" routerLink="/wishlist">
+                        <i class="fa-solid fa-heart fa-2xl" style="color: #0aad0a;"></i>
+                        <span class="badge bg-info position-absolute top-0 end-0">{{wishNum}}</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="button">
+                    <a href="" class="nav-link position-relative" routerLink="/cart">
+                        <i class="fas fa-cart-shopping fa-2x text-main"></i>
+                        <span class="badge bg-info position-absolute top-0 end-0">{{cartNum}}</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="button">
+                    <i class="fab fa-facebook me-3"></i>
+                    <i class="fab fa-linkedin me-3"></i>
+                    <i class="fab fa-instagram me-3"></i>
+                    <i class="fab fa-twitter me-3"></i>
+                    <i class="fab fa-tiktok me-3"></i>
+
+                </li>
+                <li (click)="signOut()" class="nav-item" role="button">
+                    <span>SignOut</span>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

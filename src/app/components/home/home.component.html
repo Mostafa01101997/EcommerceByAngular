@@ -1,0 +1,95 @@
+<section>
+    <div class="row g-0">
+        <div class="col-md-9">
+
+            <owl-carousel-o [options]="mainSlideOptions">
+
+                <ng-template carouselSlide>
+                    <img height="400" src="./assets/images/main-slider-1.jpeg" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img height="400" src="./assets/images/main-slider-2.jpeg" alt="">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img height="400" src="./assets/images/main-slider-2.jpeg" alt="">
+                </ng-template>
+
+            </owl-carousel-o>
+
+        </div>
+        <div class="col-md-3">
+            <img class="w-100" height="200" src="./assets/images/slide-1.jpeg" alt="">
+            <img class="w-100" height="200" src="./assets/images/slide-2.jpeg" alt="">
+
+
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <h2>Shop Popular Category</h2>
+    <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let slide of categoryData">
+            <ng-template carouselSlide [id]="slide._id">
+                <img height="270" [src]="slide.image" [alt]="slide.name" [title]="slide.name">
+                <h3 class="h6 text-main">{{slide.name}}</h3>
+            </ng-template>
+        </ng-container>
+
+    </owl-carousel-o>
+</section>
+
+
+<section class="my-3">
+
+    <input type="text" class="form-control w-50 mx-auto my-3 " placeholder="Search...." [(ngModel)]="termInput" />
+
+    <div class="row g-4 justify-content-center ">
+        <div 
+        *ngFor="let item of (productData|search:termInput 
+        | paginate: { 
+            itemsPerPage: 20,
+            currentPage: page,
+              id:'first' } ) 
+        " class="col-em-6 col-md-4 col-lg-2">
+            <div class="product">
+                <div role="button" [routerLink]="['/productdetails',item._id]">
+                    <img [src]="item.imageCover" class="w-100" alt="">
+                    <h4 class="font-sm text-main">{{item.category.name}}</h4>
+                    <h3 class="font-sm">{{item.title|cuttext}}</h3>
+
+                    <div class="d-flex justify-content-between align-items-center small">
+                        <span>
+                            {{item.price | currency:'EGP'}}
+                        </span>
+                        <p class="mb-0">
+                            <i [class.rating-color]="item.ratingsAverage>=num" *ngFor="let num of [1,2,3,4,5]"
+                                class="fa-solid fa-star"></i>
+                            <span class="text-muted">
+                                {{item.ratingsAverage}}
+                            </span>
+                        </p>
+
+                    </div>
+
+                </div>
+                <span class="main-icon">
+
+                    <i *ngIf="!wishListData.includes($any(item._id))" #icon (click)="addProductToWishList(item._id) 
+                     " class="fa-solid fa-heart fa-2xl" style="color: #e84326;"></i>
+                </span>
+                <span class="wish-icon">
+                    <i *ngIf="wishListData.includes($any(item._id))" #icon (click)="removeProductWish(item._id) 
+                     " class="fa-solid fa-heart fa-2xl" style="color: #e84326;"></i>
+                </span>
+                <button class="main-btn w-100" (click)="addProduct(item._id)">+ Add To Cart</button>
+            </div>
+        </div>
+    </div>
+  <div class="py-4">
+    <pagination-controls class="text-center " (pageChange)="page = $event" id="first"></pagination-controls>
+  </div>
+</section>

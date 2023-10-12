@@ -1,0 +1,36 @@
+
+<section class="my-3" *ngIf="wishDetails;else empty">
+
+    <div class="row g-4">
+        <div *ngFor="let item of wishDetails " class="col-em-6 col-md-4 col-lg-2">
+            <div class="product">
+                <div role="button" [routerLink]="['/productdetails',item._id]">
+                    <img [src]="item.imageCover" class="w-100" alt="">
+                    <h4 class="font-sm text-main">{{item.category.name}}</h4>
+                    <h3 class="font-sm">{{item.title|cuttext}}</h3>
+
+                    <div class="d-flex justify-content-between align-items-center small">
+                        <span>
+                            {{item.price | currency:'EGP'}}
+                        </span>
+                        <p class="mb-0">
+                            <i [class.rating-color]="item.ratingsAverage>=num" *ngFor="let num of [1,2,3,4,5]"
+                                class="fa-solid fa-star"></i>
+                            <span class="text-muted">
+                                {{item.ratingsAverage}}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <span class="wish-icon">
+                    <i #icon (click)="removeProductWish(item._id) 
+                     " class="fa-solid fa-heart fa-2xl" style="color: #e84326;"></i>
+                </span>
+                <button class="main-btn w-100" (click)="addProductToCart(item._id)">+ Add To Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+<ng-template #empty>
+    <h2 class="text-center">Your Wishlist Is Empty ......</h2>
+</ng-template> 

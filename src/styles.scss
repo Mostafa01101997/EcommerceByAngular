@@ -1,1 +1,121 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded", sans-serif;
+$rating-color: #ffc908;
+$main-transition: 0.8s;
+
+
+::-webkit-scrollbar {
+    width: .625rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $light-color;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $main-color;
+}
+
+
+
+
+body {
+    font-family: "Encode Sans Expanded", sans-serif;
+}
+
+.rating-color {
+    color: $rating-color;
+}
+
+.main-btn {
+    background-color: $main-color;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: unset;
+    cursor: pointer;
+
+    &:disabled {
+        background-color: #0aad0a69;
+        color: #ffffff5b;
+        cursor: not-allowed;
+    }
+}
+
+.btn-add {
+    background-color: $main-color;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: unset;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5PX;
+    left: 0px;
+
+    &:disabled {
+        background-color: #0aad0a69;
+        color: #ffffff5b;
+        cursor: not-allowed;
+    }
+
+}
+
+.active-link {
+    background-color: $main-color !important;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.text-main {
+    color: $main-color;
+}
+
+.bg-main-light {
+    background-color: $light-color;
+}
+
+.font-sm {
+    font-size: .75rem;
+}
+
+.product {
+    border: .0625rem solid $main-color;
+    padding: .3125rem;
+    border-radius: .3125rem;
+    position: relative;
+    overflow: hidden;
+    
+    
+
+    &:hover .main-icon {
+        right: 10px;
+        transition: all 1s;
+        z-index: 999999;
+    }
+
+    .main-icon {
+        position: absolute;
+        top: 10px;
+        right: -35px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+    .wish-icon{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+}

@@ -1,0 +1,26 @@
+$main-color: #0aad0a;
+
+:host {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    padding-top: 80px !important;
+}
+
+.btn-up {
+    position: fixed;
+    bottom: .625rem;
+    right: .625rem;
+    z-index: 99;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: $main-color;
+    border: unsets;
+    background-color: $main-color;
+}
